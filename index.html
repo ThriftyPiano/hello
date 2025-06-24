@@ -13,7 +13,42 @@
     float dx = 3;
     float dy = 2;
     float r = 30;
+    void setup() {<!DOCTYPE html>
+<html>
+<head>
+  <title>hello world</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
+  <style>body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #222; }</style>
+</head>
+<body>
+  <canvas id="ball" width="400" height="300"></canvas>
+  <script type="application/processing" id="script">
+    float x = 50;
+    float y = 50;
+    float dx = 3;
+    float dy = 2;
+    float r = 30;
     void setup() {
+      size(400, 300);
+      smooth();
+    }
+    void draw() {
+      background(34,34,34);
+      fill(255, 100, 100);
+      ellipse(x, y, r*2, r*2);
+      x += dx;
+      y += dy;
+      if (x < r || x > width - r) dx *= -1;
+      if (y < r || y > height - r) dy *= -1;
+    }
+  </script>
+  <script>
+    var canvas = document.getElementById('ball');
+    var code = document.getElementById('script').textContent;
+    Processing(canvas, code);
+  </script>
+</body>
+</html>
       size(400, 300);
       smooth();
     }
